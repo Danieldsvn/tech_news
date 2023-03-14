@@ -46,12 +46,13 @@ def get_summary(first_paragraph):
 def get_category(url):
     url_without_http = url.split("//")[1]
     category = url_without_http.split("/")[1]
-    if category == "linguagem-de-programacao":
+    category = category.capitalize()
+    if category == "Linguagem-de-programacao":
         category = "Linguagem de Programação"
-    if category == "noticias":
+    if category == "Noticias":
         category = "Notícias"
 
-    return category.capitalize()
+    return category
 
 
 # Requisito 4
@@ -59,34 +60,27 @@ def scrape_news(html_content):
     selector = Selector(text=html_content)
 
     url = selector.css("head link[rel='canonical']::attr(href)").get()
-    print("url -> ", url)
 
     title = selector.css(".entry-title::text").get()
     title = title.strip()
-    print("title -> ", title)
 
     timestamp = selector.css(".meta-date::text").get()
-    print("timestamp -> ", timestamp)
 
     writer = selector.css(".url.fn.n::text").get()
-    print("writer -> ", writer)
 
     reading_time_text = selector.css(".meta-reading-time::text").get()
     reading_time = int(reading_time_text.split(" ")[0])
-    print("reading_time -> ", reading_time)
-
-    first_paragraph2 = selector.css(".entry-content>p:first-child").getall()
-    print("first_paragraph2", first_paragraph2)
 
     first_paragraph = selector.css(
         ".entry-content>p:first-child *::text"
     ).getall()
-    print("first_paragraph", first_paragraph)
+    if len(first_paragraph) == 0:
+        first_paragraph = selector.css(
+            ".entry-content>p:nth-child(2) *::text"
+        ).getall()
     summary = get_summary(first_paragraph).strip()
-    print("summary -> ", summary)
 
     category = get_category(url)
-    print("category -> ", category)
 
     dict = {
         "url": url,
