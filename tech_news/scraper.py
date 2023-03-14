@@ -2,6 +2,8 @@ from parsel import Selector
 import requests
 from time import sleep
 
+# import re
+
 
 # Requisito 1
 def fetch(url):
@@ -37,7 +39,25 @@ def scrape_next_page_link(html_content):
 
 # Requisito 4
 def scrape_news(html_content):
-    pass
+    selector = Selector(text=html_content)
+    print("selector", selector)
+
+    url = selector.css("head link[rel='canonical']::attr(href)").get()
+    print("url -> ", url)
+
+    title = selector.css(".entry-title::text").get()
+    date = selector.css(".meta-date::text").get()
+    writer = selector.css(".url.fn.n::text").get()
+    reading_time_text = selector.css(".meta-reading-time::text").get()
+    reading_time_integer = int(reading_time_text.split(" ")[0])
+    # summary_complete = selector.css(".entry-content p").get()
+    # summary = re.sub("^<.+>$", "", summary_complete)
+    # summary = summary_complete.replace("^<.*>$", "")
+    print("title -> ", title)
+    print("date -> ", date)
+    print("writer -> ", writer)
+    print("reading_time_integer -> ", reading_time_integer)
+    # print("summary -> ", summary)
 
 
 # Requisito 5
