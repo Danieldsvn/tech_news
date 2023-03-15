@@ -108,7 +108,6 @@ def get_tech_news(amount):
             response_text_aux = fetch(news_links[index])
             content = scrape_news(response_text_aux)
             result.append(content)
-            print("len(result)", len(result))
             if len(result) == amount:
                 break
             index += 1
