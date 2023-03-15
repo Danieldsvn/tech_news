@@ -100,19 +100,19 @@ def scrape_news(html_content):
 def get_tech_news(amount):
     result = []
     next_page_link = "https://blog.betrybe.com/"
-    print("amount", amount)
-    while len(result) <= amount:
+    while len(result) < amount:
         response_text = fetch(next_page_link)
         news_links = scrape_updates(response_text)
-        for index in range(len(news_links)):
+        index = 0
+        while index < len(news_links):
             response_text_aux = fetch(news_links[index])
             content = scrape_news(response_text_aux)
             result.append(content)
             print("len(result)", len(result))
             if len(result) == amount:
-                print("break")
                 break
-        print("while")
+            index += 1
+
         next_page_link = scrape_next_page_link(response_text)
 
     create_news(result)
