@@ -1,13 +1,29 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Tech News
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+3º projeto utilizando Python na Trybe. Neste projeto é feito raspagem de dados com o objetivo de fazer consultas de notícia em tecnologia e armazenamento das informações no banco de dados.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## Tecnologias empregadas:
+
+Python, MongoDb e frameworks:
+
+* Request e Parsel(Raspagem de dados)
+
+* pymongo(conexão com o banco de dos)
+
+## Habilidades praticadas
+
+  * Raspagem de dados
+  
+  * Extrair dados de conteúdo HTML
+
+  * Armazenar os dados obtidos em um banco de dados
+  
+
+## O que é de minha autoria:
+
+Os arquivos dos diretórios:
+
+* `tech_news/scraper.py`
+* `tech_news/analyzer/search_engine.py`
+
+
