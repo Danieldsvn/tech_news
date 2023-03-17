@@ -6,7 +6,7 @@
 
 Python, MongoDb e frameworks:
 
-* Request e Parsel(Raspagem de dados)
+* Requests e Parsel(Raspagem de dados)
 
 * pymongo(conexão com o banco de dos)
 
