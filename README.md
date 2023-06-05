@@ -8,7 +8,7 @@ Python, MongoDb e frameworks:
 
 * Requests e Parsel(Raspagem de dados)
 
-* pymongo(conexão com o banco de dos)
+* pymongo(conexão com o banco de dados)
 
 ## Habilidades praticadas
 
